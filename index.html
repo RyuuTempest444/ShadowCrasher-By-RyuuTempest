@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attack Menu Login</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    input, select, button {
+      background: none;
+      border: 2px solid red;
+      color: red;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      width: 80%;
+      max-width: 300px;
+    }
+    button {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Page -->
+  <div class="container" id="login-page">
+    <h1>Login</h1>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">LOGIN</button>
+  </div>
+
+  <!-- Attack Menu Page -->
+  <div class="container" id="attack-page" style="display: none;">
+    <h1>Attack Menu</h1>
+    <input type="text" id="target-number" placeholder="Enter Target Number">
+    <select id="attack-type">
+      <option>Ultimate Crash</option>
+      <option>Crash Invisible</option>
+      <option>Hard Delay Invisible</option>
+      <option>IOS Crash (Exp)</option>
+      <option>Android UI Killer</option>
+    </select>
+    <button onclick="sendBug()">SEND BUG</button>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'RyuuTheShadow' && password === 'CrasherNewV1') {
+        document.getElementById('login-page').style.display = 'none';
+        document.getElementById('attack-page').style.display = 'block';
+      } else {
+        alert('Login Gagal!');
+      }
+    }
+
+    function sendBug() {
+      const number = document.getElementById('target-number').value;
+      const attackType = document.getElementById('attack-type').value;
+      
+      if (number.trim() === '') {
+        alert('Masukkan Nomor Target!');
+        return;
+      }
+      
+      alert(`Bug Terkirim ke ${number} dengan tipe "${attackType}" (Dummy).`);
+    }
+  </script>
+</body>
+</html>
